@@ -25,9 +25,9 @@
                         <when test="searchType == null or searchType.equals('')">
                             AND (
                                 title LIKE CONCAT('%', #{keyword}, '%')
-                            OR content LIKE CONCAT('%', #{keyword}, '%')
-                            OR writer LIKE CONCAT('%', #{keyword}, '%')
-                            )
+                                OR content LIKE CONCAT('%', #{keyword}, '%')
+                                OR writer LIKE CONCAT('%', #{keyword}, '%')
+                                )
                         </when>
                         <otherwise>
                             <choose>
@@ -53,7 +53,7 @@
                 COUNT(*)
         FROM
                 board
-        <include refid="conditions"></include>
+        <include refid="conditions"/>
     </select>
 
     <!-- 게시글 리스트 조회 -->
@@ -69,10 +69,10 @@
                 writer
         FROM
                 board
-        <include refid="conditions"></include>
+        <include refid="conditions"/>
         ORDER BY
                 seq DESC, created_date DESC
         LIMIT
-                #{pagination.limitStart}, #{recordPerpage}
+                #{pagination.limitStart}, #{recordPerPage}
     </select>
 </mapper>

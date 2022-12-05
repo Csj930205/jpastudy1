@@ -29,7 +29,7 @@ public class BoardApiController {
     *  게시글 리스트 조회
     * */
     @GetMapping("boards")
-    public Map<String, Object> findAll(@RequestParam final CommonParams params) {
+    public Map<String, Object> findAll(final CommonParams params) {
         return boardService.findAll(params);
     }
 

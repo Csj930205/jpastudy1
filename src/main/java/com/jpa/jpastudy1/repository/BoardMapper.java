@@ -1,7 +1,6 @@
 package com.jpa.jpastudy1.repository;
 
 import com.jpa.jpastudy1.domain.dto.BoardResponseDto;
-import com.jpa.jpastudy1.domain.entity.Board;
 import com.jpa.jpastudy1.paging.CommonParams;
 import org.apache.ibatis.annotations.Mapper;
 

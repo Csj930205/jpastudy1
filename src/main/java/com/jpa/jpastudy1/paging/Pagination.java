@@ -27,6 +27,26 @@ public class Pagination {
         if (params.getPage() > totalPageCount) {
             params.setPage(totalPageCount);
         }
+
+        // 첫 페이지 번호 계산
+        startPage = ((params.getPage() - 1) / params.getPageSize() * params.getPageSize()) + 1;
+
+        // 끝 페이지 번호 계산
+        endPage = startPage + params.getPageSize() - 1;
+
+        // 끝 페이지가 전체 페이지 수보다 큰 경우, 끝 페이지 전체 페이지 수 저장
+        if (endPage > totalPageCount) {
+            endPage = totalPageCount;
+        }
+
+        // LIMIT 시작 위치 계산
+        limitStart = (params.getPage() - 1) * params.getRecordPerPage();
+
+        // 이전 페이지 존재 여부 확인
+        existPrePage = startPage != 1;
+
+        // 다음 페이지 존재 여부 확인
+        existNextPage = (endPage * params.getRecordPerPage()) < totalPageCount;
     }
 
 }
